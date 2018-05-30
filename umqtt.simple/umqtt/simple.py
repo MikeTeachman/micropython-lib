@@ -1,7 +1,14 @@
-import usocket as socket
-import ustruct as struct
-from ubinascii import hexlify
+import socket
+try:
+    import struct   # circuitPython 3.0.0
+except ImportError:
+    import ustruct as struct # circuitPython 2.3.1  
 
+try:
+    from binascii import hexlify    # circuitPython 3.0.0
+except ImportError:
+    from ubinascii import hexlify   # circuitPython 2.3.1  
+    
 class MQTTException(Exception):
     pass
 
